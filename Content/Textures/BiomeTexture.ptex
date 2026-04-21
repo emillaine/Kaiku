@@ -1,0 +1,473 @@
+{
+	"connections": [
+		{
+			"from": "voronoi2",
+			"from_port": 2,
+			"to": "fill_to_random_grey",
+			"to_port": 0
+		},
+		{
+			"from": "voronoi2",
+			"from_port": 2,
+			"to": "fill_to_gradient",
+			"to_port": 0
+		},
+		{
+			"from": "fill_to_gradient",
+			"from_port": 0,
+			"to": "gaussian_blur",
+			"to_port": 0
+		},
+		{
+			"from": "voronoi2",
+			"from_port": 2,
+			"to": "fill_to_color",
+			"to_port": 0
+		},
+		{
+			"from": "gradient",
+			"from_port": 0,
+			"to": "fill_to_color",
+			"to_port": 1
+		},
+		{
+			"from": "fill_to_random_grey",
+			"from_port": 0,
+			"to": "colormap_3",
+			"to_port": 0
+		},
+		{
+			"from": "gradient_2",
+			"from_port": 0,
+			"to": "colormap_3",
+			"to_port": 1
+		},
+		{
+			"from": "colormap_3",
+			"from_port": 0,
+			"to": "gaussian_blur_2",
+			"to_port": 0
+		},
+		{
+			"from": "gaussian_blur_2",
+			"from_port": 0,
+			"to": "sharpen",
+			"to_port": 0
+		},
+		{
+			"from": "sharpen",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 0
+		}
+	],
+	"label": "Graph",
+	"longdesc": "",
+	"name": "@Node@822",
+	"node_position": {
+		"x": 0.0,
+		"y": 0.0
+	},
+	"nodes": [
+		{
+			"export_paths": {
+
+			},
+			"name": "Material",
+			"node_position": {
+				"x": 691.333312988281,
+				"y": 0.666666746139526
+			},
+			"parameters": {
+				"albedo_color": {
+					"a": 1.0,
+					"b": 1.0,
+					"g": 1.0,
+					"r": 1.0,
+					"type": "Color"
+				},
+				"ao": 1.0,
+				"depth_scale": 0.5,
+				"emission_energy": 1.0,
+				"flags_transparent": true,
+				"metallic": 0.0,
+				"normal": 1.0,
+				"roughness": 1.0,
+				"size": 11,
+				"sss": 1.0
+			},
+			"seed_int": 0,
+			"type": "material"
+		},
+		{
+			"name": "voronoi2",
+			"node_position": {
+				"x": -594.833190917969,
+				"y": 11.0
+			},
+			"parameters": {
+				"intensity": 1.0,
+				"randomness": 0.85,
+				"scale_x": 4.0,
+				"scale_y": 4.0,
+				"stretch_x": 1.0,
+				"stretch_y": 1.0
+			},
+			"seed_int": 0,
+			"type": "voronoi2"
+		},
+		{
+			"name": "fill_to_random_grey",
+			"node_position": {
+				"x": -259.499938964844,
+				"y": 33.9998779296875
+			},
+			"parameters": {
+				"edgecolor": 0.0
+			},
+			"seed_int": 0,
+			"type": "fill_to_random_grey2"
+		},
+		{
+			"name": "fill_from_colors",
+			"node_position": {
+				"x": -394.16650390625,
+				"y": 388.333312988281
+			},
+			"parameters": {
+				"size": 8.0
+			},
+			"seed_int": 0,
+			"type": "fill_from_colors"
+		},
+		{
+			"name": "perlin_color",
+			"node_position": {
+				"x": -163.499877929688,
+				"y": 453.666625976563
+			},
+			"parameters": {
+				"iterations": 3.0,
+				"persistence": 0.5,
+				"scale_x": 4.0,
+				"scale_y": 4.0
+			},
+			"seed_int": 0,
+			"type": "perlin_color"
+		},
+		{
+			"name": "adjust_hsv",
+			"node_position": {
+				"x": -171.499847412109,
+				"y": 339.0
+			},
+			"parameters": {
+				"hue": 0.0,
+				"saturation": 1.0,
+				"value": 1.0
+			},
+			"seed_int": 0,
+			"type": "adjust_hsv"
+		},
+		{
+			"name": "colormap",
+			"node_position": {
+				"x": 100.500122070313,
+				"y": 456.333312988281
+			},
+			"parameters": {
+				"direction": 0.0,
+				"offset": 0.5
+			},
+			"seed_int": 0,
+			"type": "colormap"
+		},
+		{
+			"name": "colormap_2",
+			"node_position": {
+				"x": 95.166748046875,
+				"y": 625.666687011719
+			},
+			"parameters": {
+				"direction": 0.0,
+				"offset": 0.5
+			},
+			"seed_int": 0,
+			"type": "colormap"
+		},
+		{
+			"name": "fill_to_gradient",
+			"node_position": {
+				"x": -457.5,
+				"y": 195.666442871094
+			},
+			"parameters": {
+				"grad": {
+					"interpolation": 1,
+					"points": [
+						{
+							"a": 1.0,
+							"b": 0.0,
+							"g": 0.0,
+							"pos": 0.0,
+							"r": 0.0
+						},
+						{
+							"a": 1.0,
+							"b": 1.0,
+							"g": 1.0,
+							"pos": 1.0,
+							"r": 1.0
+						}
+					],
+					"type": "Gradient"
+				},
+				"layers": 1.0,
+				"mode": 0.0,
+				"r_offset": 0.0,
+				"r_rotate": 180.0,
+				"rotate": 0.0
+			},
+			"seed_int": 0,
+			"type": "fill_to_gradient2"
+		},
+		{
+			"name": "gaussian_blur",
+			"node_position": {
+				"x": -12.1666564941406,
+				"y": 278.999816894531
+			},
+			"parameters": {
+				"param0": 9.0,
+				"param1": 10.1,
+				"param2": 0.0,
+				"param3": false
+			},
+			"seed_int": 0,
+			"type": "gaussian_blur"
+		},
+		{
+			"name": "fill_to_color",
+			"node_position": {
+				"x": -91.5000686645508,
+				"y": -60.0002517700195
+			},
+			"parameters": {
+				"edgecolor": {
+					"a": 1.0,
+					"b": 0.0,
+					"g": 0.0,
+					"r": 1.0,
+					"type": "Color"
+				}
+			},
+			"seed_int": 0,
+			"type": "fill_to_color2"
+		},
+		{
+			"name": "gradient",
+			"node_position": {
+				"x": -345.499938964844,
+				"y": -118.000244140625
+			},
+			"parameters": {
+				"gradient": {
+					"interpolation": 1,
+					"points": [
+						{
+							"a": 1.0,
+							"b": 0.0,
+							"g": 0.0,
+							"pos": 0.0,
+							"r": 0.0
+						},
+						{
+							"a": 1.0,
+							"b": 1.0,
+							"g": 1.0,
+							"pos": 1.0,
+							"r": 1.0
+						}
+					],
+					"type": "Gradient"
+				},
+				"mirror": false,
+				"repeat": 1.0,
+				"rotate": 180.0
+			},
+			"seed_int": 0,
+			"type": "gradient"
+		},
+		{
+			"name": "colormap_3",
+			"node_position": {
+				"x": 32.4999809265137,
+				"y": 21.3331298828125
+			},
+			"parameters": {
+				"direction": 0.0,
+				"offset": 0.5
+			},
+			"seed_int": 0,
+			"type": "colormap"
+		},
+		{
+			"name": "gradient_2",
+			"node_position": {
+				"x": -154.833312988281,
+				"y": 126.666442871094
+			},
+			"parameters": {
+				"gradient": {
+					"interpolation": 0,
+					"points": [
+						{
+							"a": 1.0,
+							"b": 1.0,
+							"g": 0.501960813999176,
+							"pos": 0,
+							"r": 0.665379881858826
+						},
+						{
+							"a": 1.0,
+							"b": 1.0,
+							"g": 0.501960813999176,
+							"pos": 0.0941375719213486,
+							"r": 0.665379881858826
+						},
+						{
+							"a": 1.0,
+							"b": 0.358411967754364,
+							"g": 0.515782952308655,
+							"pos": 0.0941575719213486,
+							"r": 0.911458313465118
+						},
+						{
+							"a": 1.0,
+							"b": 0.358411967754364,
+							"g": 0.515782952308655,
+							"pos": 0.293883122673035,
+							"r": 0.911458313465118
+						},
+						{
+							"a": 1.0,
+							"b": 0.271280914545059,
+							"g": 0.689212203025818,
+							"pos": 0.293903122673035,
+							"r": 0.921875
+						},
+						{
+							"a": 1.0,
+							"b": 0.271280914545059,
+							"g": 0.689212203025818,
+							"pos": 0.48217822479248,
+							"r": 0.921875
+						},
+						{
+							"a": 1.0,
+							"b": 0.430847138166428,
+							"g": 0.887217223644257,
+							"pos": 0.48219822479248,
+							"r": 0.9140625
+						},
+						{
+							"a": 1.0,
+							"b": 0.430847138166428,
+							"g": 0.887217223644257,
+							"pos": 0.617038501968384,
+							"r": 0.9140625
+						},
+						{
+							"a": 1.0,
+							"b": 0.30804443359375,
+							"g": 0.8046875,
+							"pos": 0.617058501968384,
+							"r": 0.610686302185059
+						},
+						{
+							"a": 1.0,
+							"b": 0.30804443359375,
+							"g": 0.8046875,
+							"pos": 0.779888071289063,
+							"r": 0.610686302185059
+						},
+						{
+							"a": 1.0,
+							"b": 0.96875,
+							"g": 0.602945923805237,
+							"pos": 0.779908071289062,
+							"r": 0.963034272193909
+						},
+						{
+							"a": 1.0,
+							"b": 0.96875,
+							"g": 0.602945923805237,
+							"pos": 0.928742994537354,
+							"r": 0.963034272193909
+						},
+						{
+							"a": 1.0,
+							"b": 0.894117653369904,
+							"g": 0.557168960571289,
+							"pos": 0.928762994537353,
+							"r": 0.43529412150383
+						},
+						{
+							"a": 1.0,
+							"b": 0.894117653369904,
+							"g": 0.557168960571289,
+							"pos": 0.99999,
+							"r": 0.43529412150383
+						},
+						{
+							"a": 1.0,
+							"b": 1.0,
+							"g": 1.0,
+							"pos": 1.00001,
+							"r": 1.0
+						}
+					],
+					"type": "Gradient"
+				},
+				"mirror": false,
+				"repeat": 1.0,
+				"rotate": 0.0
+			},
+			"seed_int": 0,
+			"type": "gradient"
+		},
+		{
+			"name": "gaussian_blur_2",
+			"node_position": {
+				"x": 230.49983215332,
+				"y": 33.6665458679199
+			},
+			"parameters": {
+				"param0": 9,
+				"param1": 24.8,
+				"param2": 0.0,
+				"param3": false
+			},
+			"seed_int": 0,
+			"type": "gaussian_blur"
+		},
+		{
+			"name": "sharpen",
+			"node_position": {
+				"x": 462.499877929688,
+				"y": 21.6665744781494
+			},
+			"parameters": {
+				"size": 4
+			},
+			"seed_int": 0,
+			"type": "sharpen"
+		}
+	],
+	"parameters": {
+
+	},
+	"seed_int": 0,
+	"shortdesc": "",
+	"type": "graph"
+}
